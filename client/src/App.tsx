@@ -1,10 +1,12 @@
-import { Box, MantineProvider } from "@mantine/core"
 import './App.css'
 
+const ENDPOINT = 'https://localhost:4000'
+
+const fetcher = (url: string) => 
+  fetch(`${ENDPOINT}/${url}`).then(r => r.json())
+
 function App() {
-  return <MantineProvider>
-    <Box>Hi there!</Box>
-  </MantineProvider>
+  <></>
 }
 
 export default App

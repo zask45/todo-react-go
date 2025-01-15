@@ -1,6 +1,7 @@
 import useSWR from 'swr'
 import './App.css'
 import { Box, MantineProvider } from '@mantine/core'
+import Add from './components/Add'
 
 const ENDPOINT = 'http://localhost:4000'
 
@@ -13,6 +14,7 @@ function App() {
   return <MantineProvider>
     <Box>
       {JSON.stringify(data)}
+      <Add />
     </Box>
   </MantineProvider>
 }

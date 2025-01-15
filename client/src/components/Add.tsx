@@ -19,9 +19,19 @@ const Add = () => {
             onClose={() => setOpen(false)}
             title="Create todo"
             centered>
-                <form onSubmit={form.onSubmit(createTodo)}>
-                    <TextInput />
-                    <Textarea />
+                <form>
+                    <TextInput 
+                    required
+                    mb={12}
+                    label="Todo"
+                    placeholder="What do you want to do?"/> 
+                    
+                    <Textarea 
+                    required
+                    mb={12}
+                    label="Todo"
+                    placeholder="tell me more..."/>
+
                     <Button type="submit">Create todo</Button>
                 </form>
             </Modal>

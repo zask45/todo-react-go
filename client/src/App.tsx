@@ -1,5 +1,5 @@
 import useSWR from 'swr'
-import './App.css'
+import "@mantine/core/styles.css"
 import { Box, MantineProvider } from '@mantine/core'
 import Add from './components/Add'
 

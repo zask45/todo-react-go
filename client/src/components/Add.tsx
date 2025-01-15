@@ -1,6 +1,6 @@
 import { useState } from "react"
 import {useForm} from "@mantine/form"
-import { Button, Group, Modal } from "@mantine/core"
+import { Button, Group, Modal, Textarea, TextInput } from "@mantine/core"
 
 const Add = () => {
     const [open, setOpen] = useState(false)
@@ -19,7 +19,11 @@ const Add = () => {
             onClose={() => setOpen(false)}
             title="Create todo"
             centered>
-                text
+                <form onSubmit={form.onSubmit(createTodo)}>
+                    <TextInput />
+                    <Textarea />
+                    <Button type="submit">Create todo</Button>
+                </form>
             </Modal>
 
             <Group>

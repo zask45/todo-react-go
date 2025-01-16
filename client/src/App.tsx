@@ -18,7 +18,15 @@ const fetcher = (url: string) =>
 
 function App() {
   const {data, mutate} = useSWR('api/todos', fetcher)
-  console.log(data)
+  
+  async function markTodoAsDone(id: number) {
+    const updated = await fetch(`${ENDPOINT}/api/todos/${id}/done`, {
+      method: "PATCH",
+    }).then(r => r.json)
+
+    mutate(updated)
+  }
+
   return <MantineProvider>
     <Box
       style={() => ({

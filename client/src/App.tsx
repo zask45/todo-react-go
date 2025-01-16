@@ -23,7 +23,7 @@ function App() {
       {data?.map((todo: Todo) => {
         return (
           <List>
-            <List.Item>{todo.title}</List.Item>
+            <List.Item key={`todo__${todo.id}`}>{todo.title}</List.Item>
           </List>
         )
       })}

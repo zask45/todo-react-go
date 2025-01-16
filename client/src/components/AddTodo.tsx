@@ -34,6 +34,7 @@ const AddTodo = ({mutate}: {mutate: KeyedMutator<Todo>}) => {
         <>
             <Modal 
             opened={open}
+            size='lg'
             onClose={() => setOpen(false)}
             title="Create todo"
             centered>
@@ -41,6 +42,7 @@ const AddTodo = ({mutate}: {mutate: KeyedMutator<Todo>}) => {
                     <TextInput 
                     required
                     mb={12}
+                    size="lg"
                     label="Todo"
                     placeholder="What do you want to do?"
                     {...form.getInputProps("title")}/> 
@@ -48,11 +50,12 @@ const AddTodo = ({mutate}: {mutate: KeyedMutator<Todo>}) => {
                     <Textarea 
                     required
                     mb={12}
+                    size='lg'
                     label="Todo"
                     placeholder="tell me more..."
                     {...form.getInputProps("body")}/>
 
-                    <Button type="submit">Create todo</Button>
+                    <Button type="submit" size="lg" mt={12}>Create todo</Button>
                 </form>
             </Modal>
 

@@ -39,6 +39,7 @@ function App() {
         return (
           <List spacing='xs' size='sm' mb={12}>
             <List.Item key={`todo__${todo.id}`}
+            onClick={() => markTodoAsDone(todo.id)}
             icon = {
               todo.done ? (
                 <ThemeIcon color='teal' size={24} radius='xl'>

@@ -5,7 +5,7 @@ import { Button, Group, Modal, Textarea, TextInput } from "@mantine/core"
 import { KeyedMutator} from "swr"
 
 
-const Add = ({mutate}: {mutate: KeyedMutator<Todo>}) => {
+const AddTodo = ({mutate}: {mutate: KeyedMutator<Todo>}) => {
     const [open, setOpen] = useState(false)
 
     const form = useForm({
@@ -65,4 +65,4 @@ const Add = ({mutate}: {mutate: KeyedMutator<Todo>}) => {
     )
 }
 
-export default Add
+export default AddTodo

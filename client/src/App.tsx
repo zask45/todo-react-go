@@ -21,7 +21,7 @@ function App() {
   return <MantineProvider>
     <Box>
       {JSON.stringify(data)}
-      <Add />
+      <Add mutate={mutate}/>
     </Box>
   </MantineProvider>
 }

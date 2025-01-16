@@ -1,8 +1,8 @@
 import useSWR from 'swr'
 import "@mantine/core/styles.css"
-import { Box, MantineProvider, List, ThemeIcon, Checkbox } from '@mantine/core'
+import { Box, MantineProvider, List, ThemeIcon, createTheme } from '@mantine/core'
 import AddTodo from './components/AddTodo'
-import { CheckCircleFillIcon, CheckCircleIcon, CheckIcon } from '@primer/octicons-react'
+import { CheckCircleFillIcon } from '@primer/octicons-react'
 
 export const ENDPOINT = 'http://localhost:4000'
 
@@ -16,6 +16,10 @@ export interface Todo {
 const fetcher = (url: string) => 
   fetch(`${ENDPOINT}/${url}`).then(r => r.json())
 
+const theme = createTheme({
+  fontFamily: 'Helvetica',
+});
+
 function App() {
   const {data, mutate} = useSWR('api/todos', fetcher)
   
@@ -27,12 +31,12 @@ function App() {
     mutate(updated)
   }
 
-  return <MantineProvider>
+  return <MantineProvider theme={theme}>
     <Box
       style={() => ({
-        padding: '2rem',
+        padding: '1rem',
         width: '100%',
-        maxWidth: '40rem',
+        maxWidth: '60rem',
         margin: '0 auto'
       })}>
       {data?.map((todo: Todo) => {

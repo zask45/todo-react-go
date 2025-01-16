@@ -1,6 +1,6 @@
 import useSWR from 'swr'
 import "@mantine/core/styles.css"
-import { Box, MantineProvider, List, ThemeIcon, createTheme } from '@mantine/core'
+import { Box, MantineProvider, List, ThemeIcon, Text } from '@mantine/core'
 import AddTodo from './components/AddTodo'
 import { CheckCircleFillIcon } from '@primer/octicons-react'
 
@@ -16,10 +16,6 @@ export interface Todo {
 const fetcher = (url: string) => 
   fetch(`${ENDPOINT}/${url}`).then(r => r.json())
 
-const theme = createTheme({
-  fontFamily: 'Helvetica',
-});
-
 function App() {
   const {data, mutate} = useSWR('api/todos', fetcher)
   
@@ -31,30 +27,31 @@ function App() {
     mutate(updated)
   }
 
-  return <MantineProvider theme={theme}>
+  return <MantineProvider>
     <Box
       style={() => ({
-        padding: '1rem',
+        padding: '2rem',
         width: '100%',
-        maxWidth: '60rem',
+        maxWidth: '64rem',
         margin: '0 auto'
       })}>
       {data?.map((todo: Todo) => {
         return (
-          <List spacing='xs' size='sm' mb={12}>
+          <List spacing="md" size="md" mb={24} center>
             <List.Item key={`todo__${todo.id}`}
+            style={{ display: "flex", alignItems: "center" }} 
             onClick={() => markTodoAsDone(todo.id)}
             icon = {
               todo.done ? (
-                <ThemeIcon color='teal' size={24} radius='xl'>
-                  <CheckCircleFillIcon size={24}/>
+                <ThemeIcon color='teal' size='lg' radius='xl'>
+                  <CheckCircleFillIcon size={32}/>
                 </ThemeIcon>) : (
-                <ThemeIcon color='gray' size={24} radius='xl'>
-                  <CheckCircleFillIcon size={24}/>
+                <ThemeIcon color='gray' size='lg' radius='xl'>
+                  <CheckCircleFillIcon size={32} />
                 </ThemeIcon>
               )
             }
-            >{todo.title}</List.Item>
+            ><Text size='xl' fw={500} ml={4}>{todo.title}</Text></List.Item>
           </List>
         )
       })}

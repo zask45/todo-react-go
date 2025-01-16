@@ -1,7 +1,7 @@
 import { useState } from "react"
 import {useForm} from "@mantine/form"
 import {ENDPOINT, Todo} from "../App"
-import { Button, getRadius, Group, Modal, Textarea, TextInput } from "@mantine/core"
+import { Button, Text, Modal, Textarea, TextInput } from "@mantine/core"
 import { KeyedMutator} from "swr"
 
 
@@ -58,7 +58,7 @@ const AddTodo = ({mutate}: {mutate: KeyedMutator<Todo>}) => {
 
             <div>
                 <Button fullWidth mb={12} size="lg" onClick={() => setOpen(true)}>
-                    ADD TODO
+                    <Text fw={700} size='xl'>ADD TODO</Text>
                 </Button>
             </div>
         </>
